@@ -1,0 +1,123 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+  	<title>userform</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="{% static 'https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap' %}" rel="stylesheet">
+
+	<link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+	
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	 <!-- Template Main CSS File -->
+	 <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+	</head>
+	<body class=" img3 img js-fullheight">
+	 <!-- ======= Header ======= -->
+	 <header id="header" class="header fixed-top d-flex align-items-center">
+		<div class="container d-flex align-items-center justify-content-between">
+	
+		  <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+			<!-- Uncomment the line below if you also wish to use an image logo -->
+			<!-- <img src="assets/img/logo.png" alt=""> -->
+			<h1> Welcome {{ data.username }}<span></span></h1>
+		  </a>
+	 
+		  <nav id="navbar" class="navbar">
+			<ul>
+			  <li><a href="/a_home/">Home {{ data.username }}</a></li>
+			  <li><a href="/addres/">AddRestaurantsAdmin</a></li>
+			  <li><a href="/viewres/">View/UpdateRestaurant</a></li>
+			  <li><a href="/v_fbk/">ViewFeedback</a></li>
+			  <li><a href="/logout/">LogOut</a></li>
+			  
+		  </nav><!-- .navbar -->
+	
+	
+		  <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+		  <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+		  <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+			<img src="{% static 'static/img/hero-img.png' %}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
+		  </div>
+		</div>
+	  </header><!-- End Header -->	
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section"> ADD RESTAURANT</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center"></h3>
+		      	<form action="/up_res1/{{ data.id }}" class="signin-form" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+		      		<div class="form-group">
+		      			<input type="text" class="form-control" placeholder="firstname" required name="firstname" value="{{ data.firstname }}">
+		      		</div>
+	            <div class="form-group">
+	              <input type="text" class="form-control" placeholder="lastname" required name="lastname"  value="{{ data.lastname }}">
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+                <div class="form-group">
+	              <input  type="text" class="form-control" placeholder="Restaurantname" required name="Restaurantname" value="{{ data.Restaurantname}}" >
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+                <div class="form-group">
+	              <input type="text" class="form-control" placeholder="location" required name="location" value="{{ data.location }}" >
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+                <div class="form-group">
+	              <input  type="text" class="form-control" placeholder="typeofshop" required name="typeofshop"   value="{{ data.typeofshop }}">
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+                <div class="form-group">
+                    <input  type="email" class="form-control" placeholder="email" required name="email"  value="{{ data.email }}">
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                  </div>
+                  <div class="form-group">
+                    <input type="tel" class="form-control" placeholder="phone" required name="phone" value="{{ data.phone }}" >
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                  </div>
+                  <div class="form-group">
+                    <input  type="number" class="form-control" placeholder="no_ofstaff" required name="no_ofstaff" value="{{ data.no_ofstaff }}" >
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                  </div>
+                  <div class="form-group">
+                    <input  type="text" class="form-control" placeholder="auth_person" required name="auth_person" value="{{ data.auth_person}}" >
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                  </div>    
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="p_email" required name="p_email" value="{{ data.p_email }}" >
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                  </div> 
+                  <div class="form-group">
+                    <input type="tel" class="form-control" placeholder="p_contact" required name="p_contact" value="{{ data.p_contact }}"  >
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                  </div> 
+				  
+	            <div class="form-group">
+	            	<input type="submit" class="form-control btn btn-primary submit px-3" value="create">
+	            </div>
+	            
+								
+	            </div>
+	          </form>
+	          
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

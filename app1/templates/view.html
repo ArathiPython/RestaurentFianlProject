@@ -1,0 +1,191 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+  	<title>Table 02</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Vendor CSS Files -->
+<link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+	
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	</head>
+	<body>
+		 <!-- ======= Header ======= -->
+     <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+  
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1> welcome {{ data1.username }}<span></span></h1>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a href="/u_home/">Home {{ data1.username }}</a></li>
+            <li><a href="/v_res/">ViewRestaurants</a></li>
+            <li><a href="/addfeed/">AddFeedback</a></li>
+           
+            
+              <ul>
+                
+                <li class="dropdown"><a href="/vfd/"><span>ViewFood</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                  <ul>
+                    
+                    <li><a href="/order1/{{x.id}}">Orders</a></li>
+                    <li><a href="/v_cart/{{x.id}}">Cart</a></li>
+                    
+                    <li><a href="/view/">ViewOffers</a></li>
+                    <li><a href="/v_item/">ViewItem</a></li>
+                    <li><a href="/v_feedback/">ViewFeedback</a></li>
+                  </ul>
+                </ul>
+           
+            <li><a href="/out/">LogOut</a></li>
+          </ul>
+        </nav><!-- .navbar -->
+  
+  
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+          <img src="{% static 'static/img/hero-img.png' %}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
+        </div>
+      </div>
+    </header><!-- End Header -->
+		 
+		  <!-- ======= Hero Section ======= -->
+		  <!-- End Hero Section -->
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						     
+						      <th>Restaurantname</th>
+						      <th>MenuName</th>
+						      <th>MenuItemName</th>
+                  <th>Quantity</th>
+                  <th>price</th>
+                  <th>cookingtime</th>
+                 
+                  <th>status</th>
+                 
+						    </tr>
+						  </thead>
+						  <tbody>
+                  {% for x in data %}
+                  <tr>
+                  
+                    <td> {{ data3.Restaurantname }} </td>
+                    <td> {{ x.MenuName }}  </td>
+                    <td> {{ x.MenuItemName }} </td>
+                    <td> {{ x.Quantity }} </td>
+                    <td> {{ x.price }} </td>
+                    <td> {{ x.cookingtime }} </td>
+                    
+                    <td> {{ x.status}} </td>
+                    <td> <a href="/addtocart/{{x.id}}">add to cart</a></td>
+                   
+                     
+                              
+						     </tr>
+                  {% endfor %}
+						    
+						  </tbody>
+						</table>
+				</div>	</div>
+		</div>
+	</section>
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Address</h4>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022 - US<br>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Reservations</h4>
+            <p>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat: 11AM</strong> - 23PM<br>
+              Sunday: Closed
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Yummy</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>
